@@ -16,6 +16,5 @@ public:
             answer[i - 1] *= start;
         }
         return answer;
-
     }
 };

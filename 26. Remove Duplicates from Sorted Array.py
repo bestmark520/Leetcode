@@ -6,15 +6,12 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        error = []
+        if not nums: return 0
 
-        for i in range(len(nums)-1, 0, -1):
-            if nums[i-1] == nums[i]:
-                error.append(i)
-        
-        for j in error:
-            del nums[j]
+        k = 1  # 下一個不重複數字要放的位置
+        for i in range(1, len(nums)):
+            if nums[i] != nums[i - 1]:
+                nums[k] = nums[i]  # in-place 覆寫
+                k += 1
 
-        k = len(nums)
-        
         return k

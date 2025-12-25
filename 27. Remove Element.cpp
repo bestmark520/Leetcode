@@ -3,12 +3,13 @@
 class Solution {
 public:
     int removeElement(vector<int>& nums, int val) {
-
-        for(int i = nums.size()-1; i > -1; i = i-1 ){
-            if (nums[i] == val){
-                 nums.erase(nums.begin() + i);
-            }
+    int k = 0;
+    for(int i = 0; i < nums.size(); i++){
+        if(nums[i] != val){
+            nums[k] = nums[i];  // 覆寫 (overwrite)
+            k++;
         }
-    return nums.size();
+    }
+    return k;
     }
 };

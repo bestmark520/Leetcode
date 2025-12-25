@@ -8,12 +8,12 @@ class Solution(object):
         """
         n = len(nums)
         answer = [1] * n
-        start = 1
+        left = 1
         for i in range(0, n - 1, 1):
-            start *= nums[i]
-            answer[i + 1] *= start
-        start = 1
+            left *= nums[i] # 因為你要累乘
+            answer[i + 1] *= left
+        right = 1
         for i in range(n - 1, 0, -1):
-            start *= nums[i]
-            answer[i - 1] *= start
+            right *= nums[i]
+            answer[i - 1] *= right
         return answer 

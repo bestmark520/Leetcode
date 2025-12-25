@@ -3,19 +3,14 @@
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int count = 0;
-        for (int i = nums.size()-1; i>0; i--){
-            if (nums[i]==nums[i-1]){
-                count++;
-                if (count>1){
-                    nums.erase(nums.begin()+i);
-                }
-            }
-            else{
-                count = 0 ;
+        if (nums.size() < 2) return nums.size();
+        int k = 2;  // 下一個能放的位置
+        for (int i = 2; i < nums.size(); i++) {
+            if (nums[i] != nums[k - 2]) {
+                nums[k] = nums[i];
+                k++;
             }
         }
-        int k = nums.size();
         return k;
     }
 };
